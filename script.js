@@ -1,6 +1,42 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+const themeStorageKey = "portfolio-theme";
+
+const updateThemeToggle = () => {
+  if (!themeToggle) return;
+
+  const isDark = document.body.classList.contains("theme-dark");
+  const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  themeColor?.setAttribute("content", isDark ? "#171815" : "#f4f1ea");
+};
+
+if (themeToggle) {
+  try {
+    if (localStorage.getItem(themeStorageKey) === "dark") {
+      document.body.classList.add("theme-dark");
+    }
+  } catch (error) {
+    console.error("Could not read the saved color theme preference.", error);
+  }
+
+  updateThemeToggle();
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("theme-dark");
+    updateThemeToggle();
+
+    try {
+      localStorage.setItem(themeStorageKey, isDark ? "dark" : "light");
+    } catch (error) {
+      console.error("Could not save the color theme preference.", error);
+    }
+  });
+}
 
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
@@ -25,7 +61,7 @@ const statCounters = document.querySelectorAll("[data-count]");
 const detailButtons = document.querySelectorAll(".detail-toggle");
 const uiProjectButtons = document.querySelectorAll(".ui-project-toggle");
 const parallaxItems = document.querySelectorAll("[data-parallax]");
-const projectImages = document.querySelectorAll(".work-media img, .work-tile img");
+const projectImages = document.querySelectorAll(".work-media img");
 const studyImages = document.querySelectorAll(".ui-project-detail img");
 const imageViewer = document.querySelector(".image-viewer");
 const imageViewerContent = imageViewer?.querySelector(".image-viewer-content");
@@ -35,10 +71,38 @@ const magneticLinks = document.querySelectorAll(".hero-actions .btn, .footer-cta
 const customCursor = document.querySelector(".custom-cursor");
 const hero = document.querySelector(".experimental-hero");
 const heroSpotlight = hero?.querySelector(".hero-spotlight");
+const heroType = hero?.querySelector(".hero-type");
 const customCursorMedia = window.matchMedia(
   "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)"
 );
 const heroMotionAllowed = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (hero && heroType && heroMotionAllowed) {
+  heroType.classList.add("is-scroll-shifting");
+  let shiftFrame = 0;
+
+  const updateNameShift = () => {
+    shiftFrame = 0;
+    const heroTop = window.scrollY + hero.getBoundingClientRect().top;
+    const scrollProgress = Math.max(
+      0,
+      Math.min(1, (window.scrollY - heroTop) / Math.max(hero.offsetHeight, 1))
+    );
+    const shift = Math.min(window.innerWidth * 0.12, 160) * scrollProgress;
+
+    heroType.style.setProperty("--name-shift-first", `${-shift}px`);
+    heroType.style.setProperty("--name-shift-second", `${shift}px`);
+  };
+
+  const scheduleNameShift = () => {
+    if (shiftFrame) return;
+    shiftFrame = window.requestAnimationFrame(updateNameShift);
+  };
+
+  window.addEventListener("scroll", scheduleNameShift, { passive: true });
+  window.addEventListener("resize", scheduleNameShift);
+  updateNameShift();
+}
 
 if (
   imageViewer instanceof HTMLDialogElement &&

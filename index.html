@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Nursyamsiah Fajriah is a developer and UI/UX designer creating thoughtful web experiences and digital products." />
     <meta name="theme-color" content="#111111" />
-    <title>Nursyamsiah Fajriah | Creative Portfolio</title>
-    <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
+    <title>Nursyamsiah Fajriah</title>
+    <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261011-nf-mark" />
   </head>
   <body class="experimental">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -23,18 +23,30 @@
     <header class="site-header" id="top">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="#home" aria-label="Nursyamsiah Fajriah home">
-          <span>NF</span>
-          <span>Creative Portfolio</span>
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-letter-n">N</span>
+            <span class="brand-letter-f">F</span>
+            <span class="brand-mark-dot"></span>
+          </span>
         </a>
-        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">
-          <span></span><span></span><span></span>
-        </button>
         <div class="nav-menu" id="nav-menu">
           <a href="#projects">Work</a>
           <a href="#capabilities">Capabilities</a>
           <a href="#uiux">UI/UX</a>
           <a href="#contact">Contact</a>
         </div>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>
+          </svg>
+        </button>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </header>
 
@@ -121,32 +133,31 @@
             </div>
           </article>
 
-          <div class="work-pair">
-            <article class="work-tile reveal">
-              <div class="work-tile-head">
-                <span class="work-count">02</span>
-                <div class="project-meta"><span>Live Website</span><span>Deployment</span></div>
-              </div>
-              <img class="wide-image" src="assets/website-klinik-pratama-kencana.png" alt="Klinik Pratama Kencana website" loading="lazy" />
-              <div>
-                <h3>Klinik Pratama Kencana Website</h3>
-                <p>A clinic website presenting its services, schedule, location, and contact details, with Google Maps, custom domain, hosting, and HTTPS setup.</p>
-                <a class="text-link" href="https://klinikpratamakencana.my.id/" target="_blank" rel="noopener noreferrer">Visit live website</a>
-              </div>
-            </article>
-            <article class="work-tile offset reveal">
-              <div class="work-tile-head">
-                <span class="work-count">03</span>
-                <div class="project-meta"><span>Web Application</span><span>Admissions</span></div>
-              </div>
-              <img class="tall-image" src="assets/ppdb-ra-khairul-ummah.png" alt="Student admissions system for RA Khairul Ummah" loading="lazy" />
-              <div>
-                <h3>Admissions System — RA Khairul Ummah</h3>
-                <p>A web-based admissions system with online forms, user login, an admin area, and applicant data management.</p>
-                <span class="local-status">Local Development</span>
-              </div>
-            </article>
-          </div>
+          <article class="work-feature work-feature-reversed reveal">
+            <div class="work-media">
+              <img src="assets/website-klinik-pratama-kencana.png" alt="Klinik Pratama Kencana website" loading="lazy" />
+            </div>
+            <div class="work-copy">
+              <span class="work-count">02</span>
+              <div class="project-meta"><span>Live Website</span><span>Deployment</span></div>
+              <h3>Klinik Pratama Kencana Website</h3>
+              <p>A clinic website presenting its services, schedule, location, and contact details, with Google Maps, custom domain, hosting, and HTTPS setup.</p>
+              <a class="text-link" href="https://klinikpratamakencana.my.id/" target="_blank" rel="noopener noreferrer">Visit live website</a>
+            </div>
+          </article>
+
+          <article class="work-feature reveal">
+            <div class="work-copy">
+              <span class="work-count">03</span>
+              <div class="project-meta"><span>Web Application</span><span>Admissions</span></div>
+              <h3>Admissions System — RA Khairul Ummah</h3>
+              <p>A web-based admissions system with online forms, user login, an admin area, and applicant data management.</p>
+              <span class="local-status">Local Development</span>
+            </div>
+            <div class="work-media">
+              <img src="assets/ppdb-ra-khairul-ummah.png" alt="Student admissions system for RA Khairul Ummah" loading="lazy" />
+            </div>
+          </article>
         </div>
       </section>
 
@@ -161,7 +172,7 @@
             <article class="skill-card"><h3>Frontend</h3><p>HTML, CSS, JavaScript, Bootstrap</p></article>
             <article class="skill-card"><h3>Backend &amp; Data</h3><p>Python, PHP, Laravel, MySQL, SQL, Database Management</p></article>
             <article class="skill-card"><h3>UI/UX Design</h3><p>Figma, Wireframing, Prototyping, Responsive Interfaces</p></article>
-            <article class="skill-card"><h3>Deployment</h3><p>cPanel, Domain &amp; Hosting, HTTPS / SSL, XAMPP</p></article>
+            <article class="skill-card"><h3>Tools &amp; Deployment</h3><p>Git, GitHub, Vercel, cPanel, Domain &amp; Hosting, HTTPS / SSL, XAMPP</p></article>
           </div>
         </div>
       </section>
@@ -274,6 +285,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20261010-experimental"></script>
+    <script src="script.js?v=20261011-theme-mode"></script>
   </body>
 </html>
