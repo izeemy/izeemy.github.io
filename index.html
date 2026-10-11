@@ -6,11 +6,18 @@
     <meta name="description" content="Nursyamsiah Fajriah is a developer and UI/UX designer creating thoughtful web experiences and digital products." />
     <meta name="theme-color" content="#111111" />
     <title>Nursyamsiah Fajriah</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Q3HVDK5VM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-5Q3HVDK5VM");
+    </script>
     <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261011-nf-mark" />
+    <link rel="stylesheet" href="styles.css?v=20261011-analytics" />
   </head>
   <body class="experimental">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -71,8 +78,8 @@
               I design and build clear, useful digital experiences—from web applications to considered user interfaces.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects">Explore selected work</a>
-              <a class="btn btn-secondary" href="mailto:nursyamsiahfajriah1@gmail.com">Get in touch</a>
+              <a class="btn btn-primary" href="#projects" data-analytics-label="hero_selected_work">Explore selected work</a>
+              <a class="btn btn-secondary" href="mailto:nursyamsiahfajriah1@gmail.com" data-analytics-label="hero_contact_email">Get in touch</a>
             </div>
           </div>
         </div>
@@ -126,7 +133,7 @@
               <div class="project-notes" id="stok-details" hidden>
                 <p>Technical focus: stock transaction records, outgoing-stock validation, inventory dashboards, stock-status classification, and clinic reporting.</p>
               </div>
-              <a class="text-link" href="https://stokobatkencana.my.id/login" target="_blank" rel="noopener noreferrer">View live system</a>
+              <a class="text-link" href="https://stokobatkencana.my.id/login" target="_blank" rel="noopener noreferrer" data-analytics-label="medicine_system">View live system</a>
             </div>
             <div class="work-media wide-screen" data-parallax="0.06">
               <img src="assets/stok-obat-dashboard.png" alt="Medicine inventory dashboard for Klinik Pratama Kencana" loading="lazy" />
@@ -142,7 +149,7 @@
               <div class="project-meta"><span>Live Website</span><span>Deployment</span></div>
               <h3>Klinik Pratama Kencana Website</h3>
               <p>A clinic website presenting its services, schedule, location, and contact details, with Google Maps, custom domain, hosting, and HTTPS setup.</p>
-              <a class="text-link" href="https://klinikpratamakencana.my.id/" target="_blank" rel="noopener noreferrer">Visit live website</a>
+              <a class="text-link" href="https://klinikpratamakencana.my.id/" target="_blank" rel="noopener noreferrer" data-analytics-label="clinic_website">Visit live website</a>
             </div>
           </article>
 
@@ -196,7 +203,7 @@
                     <p class="ui-project-category">Mobile App · Education</p>
                     <h3>LearnOnity</h3>
                     <p>A learning app concept with a welcoming interface for exploring educational content.</p>
-                    <a class="text-link" href="https://www.figma.com/proto/U5negS0raee6T3m2le3aRG/LearnOnity?node-id=90-708&amp;viewport=159%2C615%2C0.25&amp;t=q6WyJ7xmi0sHQ89Z-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=83%3A484&amp;show-proto-sidebar=1&amp;page-id=15%3A640" target="_blank" rel="noopener noreferrer">Explore the prototype ↗</a>
+                    <a class="text-link" href="https://www.figma.com/proto/U5negS0raee6T3m2le3aRG/LearnOnity?node-id=90-708&amp;viewport=159%2C615%2C0.25&amp;t=q6WyJ7xmi0sHQ89Z-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=83%3A484&amp;show-proto-sidebar=1&amp;page-id=15%3A640" target="_blank" rel="noopener noreferrer" data-analytics-label="learnonity_prototype">Explore the prototype ↗</a>
                   </div>
                 </div>
               </div>
@@ -269,14 +276,15 @@
             <h2>Let’s make something<br />thoughtful together.</h2>
             <p>For collaborations, opportunities, or a good conversation about digital products.</p>
           </div>
-          <a class="footer-cta" href="mailto:nursyamsiahfajriah1@gmail.com">
+          <a class="footer-cta" href="mailto:nursyamsiahfajriah1@gmail.com" data-analytics-label="footer_contact_email">
             <span>Start a conversation</span><span class="footer-cta-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
         <div class="footer-middle">
-          <div><span>Email</span><a href="mailto:nursyamsiahfajriah1@gmail.com">nursyamsiahfajriah1@gmail.com</a></div>
-          <div><span>Profile</span><a href="https://www.linkedin.com/in/nursyamsiahfajriah/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          <div><span>Email</span><a href="mailto:nursyamsiahfajriah1@gmail.com" data-analytics-label="footer_email">nursyamsiahfajriah1@gmail.com</a></div>
+          <div><span>Profile</span><a href="https://www.linkedin.com/in/nursyamsiahfajriah/" target="_blank" rel="noopener noreferrer" data-analytics-label="linkedin_profile">LinkedIn</a></div>
           <div><span>Explore</span><a href="#projects">Selected work</a><a href="#uiux">UI/UX studies</a></div>
+          <p class="analytics-notice">This site uses Google Analytics to understand visits and improve the experience. Google may collect usage and device data. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Read Google’s Privacy Policy</a>.</p>
         </div>
         <div class="footer-bottom">
           <a class="back-to-top" href="#top" aria-label="Back to top">&uarr;</a>
@@ -285,6 +293,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20261011-theme-mode"></script>
+    <script src="script.js?v=20261011-analytics"></script>
   </body>
 </html>

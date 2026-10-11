@@ -5,6 +5,19 @@ const themeToggle = document.querySelector(".theme-toggle");
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const themeStorageKey = "portfolio-theme";
 
+const trackPortfolioEvent = (eventName, parameters = {}) => {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, parameters);
+};
+
+document.querySelectorAll("[data-analytics-label]").forEach((link) => {
+  link.addEventListener("click", () => {
+    trackPortfolioEvent("portfolio_link_click", {
+      link_label: link.dataset.analyticsLabel,
+    });
+  });
+});
+
 const updateThemeToggle = () => {
   if (!themeToggle) return;
 
@@ -29,6 +42,7 @@ if (themeToggle) {
   themeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("theme-dark");
     updateThemeToggle();
+    trackPortfolioEvent("theme_toggle", { theme: isDark ? "dark" : "light" });
 
     try {
       localStorage.setItem(themeStorageKey, isDark ? "dark" : "light");
@@ -47,6 +61,7 @@ if (navToggle && navMenu) {
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      trackPortfolioEvent("navigation_click", { link_target: link.hash });
       navMenu.classList.remove("is-open");
       navToggle.classList.remove("is-active");
       navToggle.setAttribute("aria-expanded", "false");
@@ -372,6 +387,9 @@ uiProjectButtons.forEach((button) => {
     if (!target) return;
 
     const isOpen = button.getAttribute("aria-expanded") === "true";
+    if (!isOpen) {
+      trackPortfolioEvent("ui_study_open", { study_id: targetId });
+    }
     uiProjectButtons.forEach((otherButton) => {
       const otherTargetId = otherButton.getAttribute("aria-controls");
       const otherTarget = otherTargetId ? document.getElementById(otherTargetId) : null;
